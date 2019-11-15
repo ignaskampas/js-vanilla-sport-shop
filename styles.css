@@ -1,62 +1,105 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 
 :root {
-    --colorWhite: #ffffff;
-    --colorBlack: #000000;
-    --colorPrimary: var(--colorBlack);
-    --colorSecondary: #d4af37;
-    --mainTransition: all 0.3s linear;
+  --colorWhite: #ffffff;
+  --colorBlack: #000000;
+  --colorDarkGold: #b08f26;
+  --colorLightGold: #e0c56e;
+  --colorPrimary: var(--colorBlack);
+  --colorSecondary: #d4af37;
+  --mainTransition: all 0.3s linear;
+  --main-navbar-height: 60px;
 }
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-    color: var(--colorBlack);
-    background: var(--colorWhite);
-    font-family: "Lato", sans-serif;
+  color: var(--colorBlack);
+  background: var(--colorWhite);
+  font-family: "Lato", sans-serif;
 }
-nav {
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
-    width: 100%;
-    background-color: #333;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    z-index: 1;
-  }
-  #logo {
-    display: flex;
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 1.5rem;
-    letter-spacing: 0.1rem;
-  }
-  #cart-icon {
-    font-size: 1.5rem;
-  }
-  #cart-btn{
-    cursor: pointer;
-    color: white;
-    padding: 14px 17px;
-    text-decoration: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-  #nr-cart-items{
-    position: absolute;
-    background: var(--colorSecondary);
-    top: 8px;
-    right: 8px;
-    padding: 0 5px;
-    border-radius: 30%;
-    color: var(--colorWhite);   
-  }
+/* --------------- Main Navbar --------------- */
+#main-navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: var(--main-navbar-height);
+  width: 100%;
+  background-color: var(--colorPrimary);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-transform: uppercase;
+  z-index: 1;
+}
+#logo {
+  display: flex;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+}
+#cart-icon {
+  font-size: 1.5rem;
+}
+#cart-btn{
+  cursor: pointer;
+  color: white;
+  padding: 14px 17px;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#nr-cart-items{
+  position: absolute;
+  background: var(--colorSecondary);
+  top: 8px;
+  right: 8px;
+  padding: 0 5px;
+  border-radius: 30%;
+  color: var(--colorWhite);   
+}
+/* --------------- Sub Navbar --------------- */
+#sub-navbar{
+  position: sticky;
+  top: var(--main-navbar-height);
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: var(--colorSecondary);
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  z-index: 1;
+}
+#sub-navbar ul{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#sub-navbar ul li{
+  display: flex;
+  height: 100%;
+  list-style-type: none;
+  align-items: center;
+}
+#sub-navbar ul li a{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 1.5rem;
+  cursor: pointer;
+}
+#sub-navbar ul li a:hover{
+  background-color: var(--colorLightGold);
+}
