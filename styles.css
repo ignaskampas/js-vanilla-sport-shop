@@ -44,17 +44,19 @@ body {
   font-size: 1.8rem;
   letter-spacing: 0.1rem;
 }
-#cart-icon {
-  font-size: 1.5rem;
+#cart-btn-container{
+  padding: 14px 17px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 #cart-btn{
   cursor: pointer;
   color: white;
-  padding: 14px 17px;
   text-decoration: none;
-  position: absolute;
-  top: 0;
-  right: 0;
+}
+#cart-icon {
+  font-size: 1.5rem;
 }
 #nr-cart-items{
   position: absolute;
