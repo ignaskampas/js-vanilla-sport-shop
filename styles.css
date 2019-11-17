@@ -9,6 +9,8 @@
   --colorSecondary: #d4af37;
   --mainTransition: all 0.3s linear;
   --main-navbar-height: 60px;
+  --sub-navbar-height: 50px;
+  --navbar-index: 2;
 }
 * {
   margin: 0;
@@ -34,7 +36,7 @@ body {
   margin: 0 auto;
   padding: 0 1.5rem;
   text-transform: uppercase;
-  z-index: 1;
+  z-index: var(--navbar-index);
 }
 #logo {
   display: flex;
@@ -71,7 +73,7 @@ body {
 #sub-navbar{
   position: sticky;
   top: var(--main-navbar-height);
-  height: 50px;
+  height: var(--sub-navbar-height);
   width: 100%;
   display: flex;
   align-items: center;
@@ -79,7 +81,7 @@ body {
   font-size: 0.8rem;
   font-weight: 900;
   text-transform: uppercase;
-  z-index: 1;
+  z-index: var(--navbar-index);
 }
 #sub-navbar ul{
   height: 100%;
@@ -104,4 +106,118 @@ body {
 }
 #sub-navbar ul li a:hover{
   background-color: var(--colorLightGold);
+}
+
+/* --------------- Banner --------------- */
+header {
+  
+}
+#banner {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  user-select: none;
+  overflow: hidden;
+}
+#banner-height-setter{
+  background: green;
+  margin-top: 66%;
+}
+.banner-img{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+}
+.arrowDiv{
+  position: absolute;
+  left: 0;
+  top: calc(50% - 35px);
+  width: 50px;
+  height: 70px;
+  background: #00000036;
+  z-index: 1;
+  transition: background 0.5s;
+}
+#leftArrowDiv{
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+#rightArrowDiv{
+  left: auto;
+  right: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+#leftArrowDiv:hover, #rightArrowDiv:hover {
+  background: #000000a8;
+  cursor: pointer;
+}
+#banner .arrowDiv .arrow{
+  display: inline-block;
+  border: 3px solid white;
+  width: 10px;
+  height: 10px;
+  border-left: none;
+  border-bottom: none;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+#leftArrow{
+  transform: rotateZ(-135deg);
+}
+#rightArrow{
+  transform: rotateZ(45deg);
+}
+
+.moveLeftCurrentSlide{
+  animation-name: moveLeftCurrent;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+.moveLeftNextSlide{
+  animation-name: moveLeftNext;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moveLeftCurrent {
+  from {margin-left: 0; opacity: 1;}
+  to {margin-left: -100%; opacity: 1;}
+}
+
+@keyframes moveLeftNext {
+  from {margin-left: 100%; opacity: 1;}
+  to {margin-left: 0%; opacity: 1;}
+}
+
+.moveRightCurrentSlide{
+  animation-name: moveRightCurrent;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.moveRightPrevSlide{
+  animation-name: moveRightPrev;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes moveRightCurrent {
+  from {margin-left: 0; opacity: 1;}
+  to {margin-left: 100%; opacity: 1;}
+}
+@keyframes moveRightPrev {
+  from {margin-left: -100%; opacity: 1;}
+  to {margin-left: 0%; opacity: 1;}
 }
