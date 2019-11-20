@@ -97,17 +97,22 @@ import Navbar from './Navbar.js'
 
 
 
-// const renderSlideShow = async () => {
-//     let view = `
-
-//     `
-// }
+const renderSlideShow = async () => {
+    let view = `
+        <div id="banner">
+            <div id="banner-height-setter"></div>
+            <div class="arrowDiv" id="leftArrowDiv"><span class="arrow" id="leftArrow"></span></div>
+            <div class="arrowDiv" id="rightArrowDiv"><span class="arrow" id="rightArrow"></span></div>
+        </div>
+    `
+    return view;
+}
 
 let Trending = {
     render: async (header, page_container) => {
         header.innerHTML = await Navbar.render();
         await Navbar.after_render();
-        page_container.innerHTML = "hello"
+        header.innerHTML += await renderSlideShow();
     }, after_render: async () => {
     }
 }
