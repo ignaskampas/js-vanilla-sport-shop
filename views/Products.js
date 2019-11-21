@@ -27,8 +27,10 @@ function displayProducts (products, page_container) {
         view += `
             <article class="product">
                 <div class="product-img-container">
-                    <img src=${product.image}
-                    class="product-img">
+                    <div class="product-img-div">
+                        <div class="product-img-div-height-setter"></div>
+                        <img src=${product.image} class="product-img">
+                    </div>
                     <button class="add-to-basket-btn" data-id=${product.id}>
                         <i class="fas fa-shopping-cart"></i>
                         add to basket

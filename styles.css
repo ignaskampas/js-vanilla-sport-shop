@@ -249,11 +249,27 @@ header {
   opacity: 0.5;
 }
 
+.product-img-div{
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.product-img-div-height-setter{
+  margin-top: 66%;
+}
+
 .product-img {
-  display: block;
+  position: absolute;
+  width: 100%;
+  margin: auto 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   transition: var(--mainTransition);
   min-height: 11rem;
-  width: 100%;
 }
 
 .add-to-basket-btn {
