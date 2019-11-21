@@ -19,10 +19,42 @@ const getProducts = async (contentfulQuery) => {
     }
 }
 
+function displayProducts (products, page_container) {
+    let view = `
+        <section id="products">
+    `
+    products.forEach(product => {
+        view += `
+            <article class="product">
+                <div class="product-img-container">
+                    <img src=${product.image}
+                    class="product-img">
+                    <button class="add-to-basket-btn" data-id=${product.id}>
+                        <i class="fas fa-shopping-cart"></i>
+                        add to basket
+                    </button>
+                </div>
+                <h4>${product.brand}</h4>
+                <h3>${product.title}</h3>
+                <h4>$${product.price}</h4>
+            </article>
+        `
+    })
+    view += `</section>`
+    page_container.innerHTML = view;
+}
+
+
 let Products = {
-    render: async (contentfulQuery) => {
-        console.log("products: \n" + getProducts(contentfulQuery).then(data => console.log(data)));
-    },after_render: async () => {
+    render: async (contentfulQuery, page_container) => {
+        //console.log("products: \n" + getProducts(contentfulQuery).then(data => console.log(data)));
+        getProducts(contentfulQuery).then(products => {
+            displayProducts(products, page_container)
+        }).then(() => {
+            // set up Add to basket buttons. Or do this in displayProducts
+        })
+    },
+    after_render: async () => {
     }
 }
 

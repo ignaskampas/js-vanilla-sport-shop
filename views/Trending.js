@@ -104,10 +104,10 @@ let Trending = {
         await Navbar.after_render();
         header.innerHTML += await renderSlideShow();
         addBannersFunctionality();
-        page_container = await Products.render({
+        await Products.render({
             'fields.isTrending' : 'true',
             'content_type' : 'product'
-        });
+        }, page_container);
     }, after_render: async () => {
     }
 }

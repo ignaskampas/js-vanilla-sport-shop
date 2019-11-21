@@ -38,6 +38,7 @@ body {
   text-transform: uppercase;
   z-index: var(--navbar-index);
 }
+
 #logo {
   display: flex;
   color: white;
@@ -221,3 +222,55 @@ header {
   from {margin-left: -100%; opacity: 1;}
   to {margin-left: 0%; opacity: 1;}
 }
+
+/* --------------- Products --------------- */
+#products {
+  display: grid;
+  width: 90vw;
+  padding: 4rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 1.5rem;
+}
+
+.product-img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-img-container:hover .add-to-basket-btn {
+  transform: translateX(0);
+}
+
+.product-img-container:hover .product-img {
+  opacity: 0.5;
+}
+
+.product-img {
+  display: block;
+  transition: var(--mainTransition);
+  min-height: 11rem;
+  width: 100%;
+}
+
+.add-to-basket-btn {
+  border: none;
+  right: 0;
+  top: 70%;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: var(--colorPrimary);
+  position: absolute;
+  transform: translateX(101%);
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: var(--mainTransition);
+}
+
+.add-to-basket-btn:hover {
+  color: var(--colorWhite);
+}
+
