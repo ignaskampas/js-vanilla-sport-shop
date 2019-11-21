@@ -34,9 +34,9 @@ function displayProducts (products, page_container) {
                         add to basket
                     </button>
                 </div>
-                <h4>${product.brand}</h4>
                 <h3>${product.title}</h3>
-                <h4>$${product.price}</h4>
+                <h4>${product.brand}</h4>
+                <h4>£${product.price}</h4>
             </article>
         `
     })

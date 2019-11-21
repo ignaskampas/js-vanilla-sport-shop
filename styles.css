@@ -21,7 +21,9 @@ body {
   color: var(--colorBlack);
   background: var(--colorWhite);
   font-family: "Lato", sans-serif;
+  padding-top: calc(var(--main-navbar-height) + var(--sub-navbar-height));
 }
+
 /* --------------- Main Navbar --------------- */
 #main-navbar {
   position: fixed;
@@ -109,10 +111,19 @@ body {
   background-color: var(--colorLightGold);
 }
 
-/* --------------- Banner --------------- */
-header {
-  
+.sub-navbar-item{
+  text-decoration: none;
+  color: var(--colorBlack);
 }
+
+/* --------------- Banner --------------- */
+/* --------------- Page Container --------------- */
+#page_container{
+  position: relative;
+  /* top: calc(var(--main-navbar-height) + var(--sub-navbar-height)); */
+  width: 100%;
+}
+
 #banner {
   display: inline-block;
   position: relative;

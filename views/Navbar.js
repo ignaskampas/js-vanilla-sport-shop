@@ -2,7 +2,7 @@ let Navbar = {
     render: async () => {
         let view =`
             <nav id="main-navbar">
-            <a id="logo" href="#home">Sport Zone</a>
+            <a id="logo" href="/#/">Sport Zone</a>
             <div id="cart-btn-container">
                 <div id="cart-btn">
                     <span id="cart-icon">
@@ -14,9 +14,9 @@ let Navbar = {
             </nav>
             <nav id="sub-navbar">
                 <ul>
-                    <li><a>Trending</a></li>
-                    <li><a>Mens</a></li>
-                    <li><a>Ladies</a></li>
+                    <li><a class="sub-navbar-item" href="/#/trending">Trending</a></li>
+                    <li><a class="sub-navbar-item" href="/#/mens">Mens</a></li>
+                    <li><a class="sub-navbar-item" href="/#/ladies">Ladies</a></li>
                 </ul>
             </nav>
         `
