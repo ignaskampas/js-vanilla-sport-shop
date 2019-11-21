@@ -239,21 +239,17 @@ header {
 .product-img-container {
   position: relative;
   overflow: hidden;
+  display: inline-block;
+  width: 100%;
 }
 
 .product-img-container:hover .add-to-basket-btn {
-  transform: translateX(0);
+  /* transform: translateX(0); */
+  margin-right: 0;
 }
 
 .product-img-container:hover .product-img {
   opacity: 0.5;
-}
-
-.product-img-div{
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
 }
 
 .product-img-div-height-setter{
@@ -278,9 +274,10 @@ header {
   top: 70%;
   text-transform: uppercase;
   font-weight: bold;
-  background: var(--colorPrimary);
+  background: var(--colorLightGold);
   position: absolute;
-  transform: translateX(101%);
+  margin-right: -100%;
+  /* transform: translateX(101%); */
   cursor: pointer;
   padding: 0.5rem 0.75rem;
   transition: var(--mainTransition);
