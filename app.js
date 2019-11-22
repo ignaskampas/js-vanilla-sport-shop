@@ -3,12 +3,13 @@
 import URLParser from "./services/URLParser.js";
 import Trending from "./views/Trending.js"
 import Mens from "./views/Mens.js"
+import Ladies from "./views/Ladies.js"
 
 const routes = {
     '/' : Trending
     , '/trending' : Trending
     , '/mens' : Mens
-    // , '/ladies' : Ladies
+    , '/ladies' : Ladies
     // , '/p/:id' : PostShow
 };
 

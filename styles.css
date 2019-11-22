@@ -5,12 +5,14 @@
   --colorBlack: #000000;
   --colorDarkGold: #b08f26;
   --colorLightGold: #e0c56e;
+  --colorGray: #363636;
   --colorPrimary: var(--colorBlack);
   --colorSecondary: #d4af37;
   --mainTransition: all 0.3s linear;
   --main-navbar-height: 60px;
   --sub-navbar-height: 50px;
   --navbar-index: 2;
+  --letterSpacing: 0.1rem;
 }
 * {
   margin: 0;
@@ -47,7 +49,7 @@ body {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 1.8rem;
-  letter-spacing: 0.1rem;
+  letter-spacing: var(--letterSpacing);
 }
 #cart-btn-container{
   padding: 14px 17px;
@@ -106,6 +108,7 @@ body {
   align-items: center;
   padding: 0 1.5rem;
   cursor: pointer;
+  letter-spacing: var(--letterSpacing);
 }
 #sub-navbar ul li a:hover{
   background-color: var(--colorLightGold);
@@ -252,6 +255,7 @@ body {
   overflow: hidden;
   display: inline-block;
   width: 100%;
+  margin-bottom: 0.9rem;
 }
 
 .product-img-container:hover .add-to-basket-btn {
@@ -277,6 +281,29 @@ body {
   right: 0;
   transition: var(--mainTransition);
   min-height: 11rem;
+}
+
+.product-title{
+  font-size: 1.05rem;
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: var(--letterSpacing);
+  margin-bottom: 0.2rem;
+}
+
+.product-brand{
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: var(--letterSpacing);
+  color: #808080;
+  margin-bottom: 0.05rem;
+}
+
+.product-price{
+  font-size: 1.05rem;
+  text-align: center;
+  letter-spacing: var(--letterSpacing);
 }
 
 .add-to-basket-btn {
