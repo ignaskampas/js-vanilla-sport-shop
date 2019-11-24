@@ -8,7 +8,7 @@ let Navbar = {
                     <span id="cart-icon">
                         <i class="fas fa-cart-plus"></i>
                     </span>
-                    <div id="nr-cart-items">0</div>
+                    <div id="nr-basket-products">0</div>
                 </div>
             </div>
             </nav>
@@ -20,9 +20,14 @@ let Navbar = {
                 </ul>
             </nav>
         `
-        return view
+        var header = document.getElementsByTagName("header")[0]
+        header.innerHTML = view
     },
-    after_render: async () => {}
+    after_render: async () => {},
+    // setCatBtnEvLis: () => {
+    //     const cartBtn = document.getElementById("cart-btn")
+    //     cartBtn.addEventListener('click', Basket.displayBasket())
+    // }
 }
 
 export default Navbar;

@@ -87,7 +87,7 @@ function addBannersFunctionality (){
     atomaticallyChangeBannerImgs();
 }
 
-const renderSlideShow = async () => {
+const renderSlideShow = async (header) => {
     let view = `
         <div id="banner">
             <div id="banner-height-setter"></div>
@@ -95,15 +95,17 @@ const renderSlideShow = async () => {
             <div class="arrowDiv" id="rightArrowDiv"><span class="arrow" id="rightArrow"></span></div>
         </div>
     `
-    return view;
+    header.innerHTML += view
 }
 
 let Trending = {
     render: async (header, page_container) => {
-        header.innerHTML = await Navbar.render();
+        await Navbar.render();
         await Navbar.after_render();
-        header.innerHTML += await renderSlideShow();
+        var header = document.getElementsByTagName("header")[0];
+        await renderSlideShow(header);
         addBannersFunctionality();
+        /* Ligi cia veikia */
         await Products.render({
             'fields.isTrending' : 'true',
             'content_type' : 'product'

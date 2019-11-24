@@ -16,7 +16,7 @@ const routes = {
 
 const router = async () => {
 
-    const header = null || document.getElementsByTagName("header")[0];
+    var header = null || document.getElementsByTagName("header")[0];
     const page_container = null || document.getElementById('page_container');
 
     let request = URLParser.parseRequestURL();
@@ -26,7 +26,6 @@ const router = async () => {
     let page = routes[parsedURL] ? routes[parsedURL] : Error404
     await page.render(header, page_container);
     await page.after_render();
-
 }
 
 window.addEventListener('hashchange', router);
