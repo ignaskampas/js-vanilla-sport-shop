@@ -23,9 +23,7 @@ const getProducts = async (contentfulQuery) => {
 }
 
 function setUpAddToBasketBtns(){
-    console.log("start of setUpAddToBasketBtns")
     const buttons = [...document.querySelectorAll(".add-to-basket-btn")];
-    console.log(buttons[0])
     buttons.forEach(button => {
         let id = button.dataset.id;
         let inBasket = Basket.inBasket(id);
@@ -46,7 +44,6 @@ function setUpAddToBasketBtns(){
             Basket.displayBasket()
         })
     })
-    console.log("end of setUpAddToBasketBtns")
 }
 
 function displayProducts(products, page_container) {
@@ -72,11 +69,9 @@ function displayProducts(products, page_container) {
                 <h4 class="product-info product-price">£${product.price}</h4>
             </article>
         `
-        console.log("end of loop")
     })
     view += `</section>`
     page_container.innerHTML = view;
-    console.log("end of displayProducts")
     // const images = [...document.querySelectorAll(".product-img-container")]
     // console.log("images: " + images)
     // images.forEach(image => {
@@ -90,13 +85,12 @@ function displayProducts(products, page_container) {
 let Products = {
     render: async (contentfulQuery, page_container) => {
         //console.log("products: \n" + getProducts(contentfulQuery).then(data => console.log(data)));
+        await Basket.renderWithoutProducts()
         getProducts(contentfulQuery).then(products => {
             displayProducts(products, page_container)
             Storage.saveProducts(products)
             setUpAddToBasketBtns()
         })
-        await Basket.renderWithoutProducts()
-        console.log(page_container)
     },
     after_render: async () => {
     }

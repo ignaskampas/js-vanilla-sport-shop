@@ -3,9 +3,9 @@ import Storage from '../helpers/Storage.js'
 var basket = Storage.getBasket();
 // might need to put these after the basket is rendered
 const pageContainer = document.getElementById('page_container');
-const subtotal = document.getElementById('subtotal')
-const nrBasketProducts = document.getElementById('nr-basket-products')
-const basketProductsContainer = document.getElementById('basket-products-container')
+var nrBasketProducts
+var basketProductsContainer
+var subtotal
 var basketContainer
 var basketTransparentBackground
 var closeBasketBtn
@@ -23,7 +23,8 @@ export function hideBasket(){
 }
 
 export function inBasket(id){
-    basket.find(product => product.id === id)
+    console.log(basket)
+    return basket.find(product => product.id === id)
 }
 
 export function getBasket(){
@@ -118,6 +119,10 @@ export async function renderWithoutProducts(){
     addToBasketBtns = [...document.querySelectorAll(".add-to-basket-btn")]
     basketTransparentBackground = document.querySelector('.basket-transparent-background')
     basketContainer = document.querySelector('.basket-container')
+    subtotal = document.getElementById('subtotal')
+    nrBasketProducts = document.getElementById('nr-basket-products')
+    basketProductsContainer = document.getElementById('basket-products-container')
+    setSubtotalAndNrItems()
     setNavbarCartBtnEvLis()
     closeBasketBtn = document.querySelector('.close-basket-btn')
     closeBasketBtn.addEventListener('click', () => {
