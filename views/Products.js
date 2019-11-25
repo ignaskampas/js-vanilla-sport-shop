@@ -32,7 +32,6 @@ function setUpAddToBasketBtns(){
             button.disabled = true;
         }
         button.addEventListener('click', event => {
-            console.log("clicked button")
             event.target.innerText = "In Basket"
             event.target.disabled = true;
             let newBasketProduct = {...Storage.getProduct(id), amount:1}
@@ -47,12 +46,9 @@ function setUpAddToBasketBtns(){
 }
 
 function displayProducts(products, page_container) {
-//displayProducts = async (products, page_container) => {
     let view = `
         <section id="products">
     `
-    // !!!!!!!!!!!!! idet sita i atskira async function. Ir tik po jos execution execute setUpAddToBasketBtns(). Turbut
-    // reikes setUpAddToBasketBtns() method idet i .then() vieta, taip kaip kitam kode parodyta.
     products.forEach(product => {
         view += `
             <article class="product">
@@ -71,20 +67,12 @@ function displayProducts(products, page_container) {
         `
     })
     view += `</section>`
-    page_container.innerHTML = view;
-    // const images = [...document.querySelectorAll(".product-img-container")]
-    // console.log("images: " + images)
-    // images.forEach(image => {
-    //     image.addEventListener('click', event => {
-    //         console.log("image clicked")
-    //     })
-    // })
+    page_container.innerHTML += view;
 }
 
 
 let Products = {
     render: async (contentfulQuery, page_container) => {
-        //console.log("products: \n" + getProducts(contentfulQuery).then(data => console.log(data)));
         await Basket.renderWithoutProducts()
         getProducts(contentfulQuery).then(products => {
             displayProducts(products, page_container)

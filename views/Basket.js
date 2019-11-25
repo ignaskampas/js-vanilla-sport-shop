@@ -1,8 +1,7 @@
 import Storage from '../helpers/Storage.js'
 
 var basket = Storage.getBasket();
-// might need to put these after the basket is rendered
-const pageContainer = document.getElementById('page_container');
+const page_container = document.getElementById('page_container');
 var nrBasketProducts
 var basketProductsContainer
 var subtotal
@@ -12,18 +11,38 @@ var closeBasketBtn
 var clearBasketBtn
 var addToBasketBtns
 
+function tempFunc(){
+    document.querySelector('.temp').classList.add('newClass')
+}
+
+function tempFunc2(){
+    document.querySelector('.temp').classList.add('newClass2')
+    console.log("executed tempFunc2()")
+}
+
+// idet i abudu page_container ir i basketTransparentBackground a new <p> ir paziuret
+// ar abudu naujus p elements parodo inside of Elements in dev tools
 export function displayBasket(){
-    basketTransparentBackground.classList.add("visible")
+    console.log("exe")
+    console.log(basketTransparentBackground)
+    basketTransparentBackground = document.querySelector('.basket-transparent-background')
+    //document.querySelector('.basket-transparent-background').classList.add('visible')
+    basketTransparentBackground.classList.add('visible')
+    //basketTransparentBackground.style.visibility = 'visible'
+    //console.log(basketTransparentBackground.classList)
+    basketContainer = document.querySelector('.basket-container')
     basketContainer.classList.add("display-basket")
+    page_container.innerHTML += `<p class="temp">hello</p>`
+    tempFunc()
 }
 
 export function hideBasket(){
     basketTransparentBackground.classList.remove("visible")
     basketContainer.classList.remove("display-basket")
+    console.log("hideBasket() executed")
 }
 
 export function inBasket(id){
-    console.log(basket)
     return basket.find(product => product.id === id)
 }
 
@@ -50,6 +69,7 @@ function setNavbarCartBtnEvLis(){
     const cartBtn = document.getElementById("cart-btn")
     cartBtn.addEventListener('click', () => {
         displayBasket()
+
     })
 }
 
@@ -59,7 +79,7 @@ function getButton(id){
 
 function clearBasket(){
     let basketProductIds = basket.map(product => product.id)
-    basketProductsIds.forEach(id => removeProduct(id))
+    basketProductIds.forEach(id => removeProduct(id))
     while(basketProductsContainer.children.length > 0){
         basketProductsContainer.removeChild(basketProductsContainer.children[0])
     }
@@ -106,16 +126,15 @@ export async function renderWithoutProducts(){
                     <i class="fas fa-window-close"></i> 
                 </span>
                 <h2>Your Shopping Basket</h2>
-                <div id="basket-products-container">
-                </div>
+                <div id="basket-products-container"></div>
                 <div class="basket-footer">
-                <h3>Subtotal: £<span id="subtotal">0</span></h3>
-                <button class="clear-basket-btn">Clear Basket</button>
-            </div>
+                    <h3>Subtotal: £<span id="subtotal">0</span></h3>
+                    <button class="clear-basket-btn">Clear Basket</button>
+                </div>
             </div>
         </div>
     `
-    pageContainer.innerHTML += view
+    page_container.innerHTML = view
     addToBasketBtns = [...document.querySelectorAll(".add-to-basket-btn")]
     basketTransparentBackground = document.querySelector('.basket-transparent-background')
     basketContainer = document.querySelector('.basket-container')
@@ -124,6 +143,7 @@ export async function renderWithoutProducts(){
     basketProductsContainer = document.getElementById('basket-products-container')
     setSubtotalAndNrItems()
     setNavbarCartBtnEvLis()
+    setBasketProductsContainerEvLis()
     closeBasketBtn = document.querySelector('.close-basket-btn')
     closeBasketBtn.addEventListener('click', () => {
         hideBasket()
@@ -132,6 +152,14 @@ export async function renderWithoutProducts(){
     clearBasketBtn.addEventListener('click', () => {
         clearBasket()
     })
+    window.setInterval(function(){
+        console.log(basketTransparentBackground)
+        console.log(basketTransparentBackground.classList)
+    }, 5000)
+    setTimeout(function(){
+        //tempFunc2()
+        //document.querySelector('.basket-transparent-background').classList.add('visible')
+    }, 10000)
 } 
 
 export function renderNewProductInBasket(product){

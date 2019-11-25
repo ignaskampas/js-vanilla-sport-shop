@@ -24,10 +24,6 @@ let Navbar = {
         header.innerHTML = view
     },
     after_render: async () => {},
-    // setCatBtnEvLis: () => {
-    //     const cartBtn = document.getElementById("cart-btn")
-    //     cartBtn.addEventListener('click', Basket.displayBasket())
-    // }
 }
 
 export default Navbar;

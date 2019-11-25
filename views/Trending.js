@@ -105,7 +105,6 @@ let Trending = {
         var header = document.getElementsByTagName("header")[0];
         await renderSlideShow(header);
         addBannersFunctionality();
-        /* Ligi cia veikia */
         await Products.render({
             'fields.isTrending' : 'true',
             'content_type' : 'product'

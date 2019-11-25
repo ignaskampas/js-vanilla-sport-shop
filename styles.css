@@ -44,8 +44,6 @@ body {
   padding: 0 1.5rem;
   text-transform: uppercase;
   z-index: var(--navbar-index);
-  /*temp:*/
-  opacity: 1;
 }
 
 #logo {
@@ -83,8 +81,6 @@ body {
   font-weight: 900;
   text-transform: uppercase;
   z-index: var(--navbar-index);
-  /*temp:*/
-  opacity: 1;
 }
 #sub-navbar ul{
   height: 100%;
@@ -117,14 +113,13 @@ body {
   color: var(--colorBlack);
 }
 
-/* --------------- Banner --------------- */
 /* --------------- Page Container --------------- */
 #page_container{
   position: relative;
-  /* top: calc(var(--main-navbar-height) + var(--sub-navbar-height)); */
   width: 100%;
 }
 
+/* --------------- Banner --------------- */
 #banner {
   display: inline-block;
   position: relative;
@@ -257,7 +252,6 @@ body {
 }
 
 .product-img-container:hover .add-to-basket-btn {
-  /* transform: translateX(0); */
   margin-right: 0;
 }
 
@@ -314,7 +308,6 @@ body {
   background: var(--colorLightGold);
   position: absolute;
   margin-right: -100%;
-  /* transform: translateX(101%); */
   cursor: pointer;
   padding: 0.5rem 0.75rem;
   transition: var(--mainTransition);
@@ -325,7 +318,6 @@ body {
 }
 
 /* --------------- Basket --------------- */
-/*p*/
 .basket-transparent-background{
   visibility: hidden;
   width: 100%;
@@ -339,7 +331,6 @@ body {
   background: #e0c56e60;
 }
 
-/*p*/
 .basket-container{
   padding: 1.5rem;
   width: 100%;
