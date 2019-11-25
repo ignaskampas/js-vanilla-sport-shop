@@ -37,7 +37,10 @@ export function displayBasket(){
 }
 
 export function hideBasket(){
+    console.log("hideBasket() executed")
+    basketTransparentBackground = document.querySelector('.basket-transparent-background')
     basketTransparentBackground.classList.remove("visible")
+    basketContainer = document.querySelector('.basket-container')
     basketContainer.classList.remove("display-basket")
     console.log("hideBasket() executed")
 }
@@ -78,6 +81,7 @@ function getButton(id){
 }
 
 function clearBasket(){
+    console.log("executed")
     let basketProductIds = basket.map(product => product.id)
     basketProductIds.forEach(id => removeProduct(id))
     while(basketProductsContainer.children.length > 0){
@@ -152,14 +156,14 @@ export async function renderWithoutProducts(){
     clearBasketBtn.addEventListener('click', () => {
         clearBasket()
     })
-    window.setInterval(function(){
-        console.log(basketTransparentBackground)
-        console.log(basketTransparentBackground.classList)
-    }, 5000)
-    setTimeout(function(){
-        //tempFunc2()
-        //document.querySelector('.basket-transparent-background').classList.add('visible')
-    }, 10000)
+    // window.setInterval(function(){
+    //     console.log(basketTransparentBackground)
+    //     console.log(basketTransparentBackground.classList)
+    // }, 5000)
+    // setTimeout(function(){
+    //     //tempFunc2()
+    //     //document.querySelector('.basket-transparent-background').classList.add('visible')
+    // }, 10000)
 } 
 
 export function renderNewProductInBasket(product){
