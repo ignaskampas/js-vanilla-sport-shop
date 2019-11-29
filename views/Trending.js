@@ -2,7 +2,7 @@ import Navbar from './Navbar.js'
 import Products from './Products.js'
 
 var timer=null;
-var slideIndex, bannerImg, slides;
+var slideIndex, slides;
     var imagePaths = ["./images/banner-images/img1.jpeg", 
     "./images/banner-images/img2.jpeg", 
     "./images/banner-images/img3.jpeg"
@@ -95,7 +95,7 @@ const renderSlideShow = async (header) => {
             <div class="arrowDiv" id="rightArrowDiv"><span class="arrow" id="rightArrow"></span></div>
         </div>
     `
-    header.innerHTML += view
+    header.insertAdjacentHTML("beforeend", view)
 }
 
 let Trending = {

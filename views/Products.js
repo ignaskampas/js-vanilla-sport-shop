@@ -67,13 +67,13 @@ function displayProducts(products, page_container) {
         `
     })
     view += `</section>`
-    page_container.innerHTML += view;
+    page_container.insertAdjacentHTML("beforeend", view)
 }
 
 
 let Products = {
     render: async (contentfulQuery, page_container) => {
-        await Basket.renderWithoutProducts()
+        Basket.renderWithoutProducts()
         getProducts(contentfulQuery).then(products => {
             displayProducts(products, page_container)
             Storage.saveProducts(products)
