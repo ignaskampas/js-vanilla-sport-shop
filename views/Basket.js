@@ -137,7 +137,11 @@ export async function renderWithoutProducts(){
     setBasketOnClickListeners()
 } 
 
-export function renderNewProductInBasket(product){
+export async function renderWithProducts(){
+    basket.forEach(product => renderProductInBasket(product))
+}
+
+export function renderProductInBasket(product){
     const div = document.createElement('div')
     div.classList.add('basket-product')
     div.innerHTML = `

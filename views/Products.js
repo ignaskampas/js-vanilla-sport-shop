@@ -39,7 +39,7 @@ function setUpAddToBasketBtns(){
             Basket.saveBasket(newBasket)
             Storage.saveBasket(newBasket)
             Basket.setSubtotalAndNrItems()
-            Basket.renderNewProductInBasket(newBasketProduct)
+            Basket.renderProductInBasket(newBasketProduct)
             Basket.displayBasket()
         })
     })
@@ -74,6 +74,7 @@ function displayProducts(products, page_container) {
 let Products = {
     render: async (contentfulQuery, page_container) => {
         Basket.renderWithoutProducts()
+        Basket.renderWithProducts()
         getProducts(contentfulQuery).then(products => {
             displayProducts(products, page_container)
             Storage.saveProducts(products)
