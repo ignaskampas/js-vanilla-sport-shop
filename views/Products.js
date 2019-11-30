@@ -31,18 +31,20 @@ function setUpAddToBasketBtns(){
         let inBasket = Basket.inBasket(id);
         if(inBasket){
             button.innerText = "In Basket";
-            button.disabled = true;
         }
         button.addEventListener('click', event => {
-            event.target.innerText = "In Basket"
-            event.target.disabled = true;
-            let newBasketProduct = {...Storage.getProduct(id), amount:1}
-            let newBasket = [...Basket.getBasket(), newBasketProduct]
-            Basket.saveBasket(newBasket)
-            Storage.saveBasket(newBasket)
-            Basket.setSubtotalAndNrItems()
-            Basket.renderProductInBasket(newBasketProduct)
-            Basket.displayBasket()
+            inBasket = Basket.inBasket(id);
+            if(inBasket){
+                Basket.removeProduct(id)
+            } else {
+                event.target.innerText = "In Basket"
+                let newBasketProduct = {...Storage.getProduct(id), amount:1}
+                let newBasket = [...Basket.getBasket(), newBasketProduct]
+                Basket.saveBasket(newBasket)
+                Storage.saveBasket(newBasket)
+                Basket.setSubtotalAndNrItems()
+                Basket.renderProductInBasket(newBasketProduct)
+            }
         })
     })
 }

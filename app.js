@@ -10,21 +10,22 @@ const routes = {
     , '/trending' : Trending
     , '/mens' : Mens
     , '/ladies' : Ladies
-    // , '/p/:id' : PostShow
 };
 
+var lastPage;
 
 const router = async () => {
-
     var header = null || document.getElementsByTagName("header")[0];
     const page_container = null || document.getElementById('page_container');
-
     let request = URLParser.parseRequestURL();
-
-    let parsedURL = (request.resource ? '/' + request.resource : '/') + (request.id ? '/:id' : '') + (request.verb ? '/' + request.verb : '')
-    
-    let page = routes[parsedURL] ? routes[parsedURL] : Error404
+    let parsedURL = (request.resource ? '/' + request.resource : '/') 
+        + (request.id ? '/:id' : '') + (request.verb ? '/' + request.verb : '');
+    let page = routes[parsedURL] ? routes[parsedURL] : Error404;
+    if(lastPage === Trending){
+        Trending.stopSlideShow();
+    }
     await page.render(header, page_container);
+    lastPage = page;
 }
 
 window.addEventListener('hashchange', router);

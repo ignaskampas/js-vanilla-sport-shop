@@ -51,18 +51,14 @@ function getButton(id){
 function clearBasket(){
     let basketProductIds = basket.map(product => product.id)
     basketProductIds.forEach(id => removeProduct(id))
-    while(basketProductsContainer.children.length > 0){
-        basketProductsContainer.removeChild(basketProductsContainer.children[0])
-    }
     hideBasket()
 }
 
 function setBasketProductsContainerEvLis(){
     basketProductsContainer.addEventListener('click', event => {
         if(event.target.classList.contains("remove-product-btn")){
-            let btn = event.target
+            let btn = event.target;
             let id = btn.dataset.id;
-            basketProductsContainer.removeChild(btn.parentElement.parentElement)
             removeProduct(id)
         } else if(event.target.classList.contains("fa-chevron-up")){
             let btn = event.target 
@@ -82,7 +78,6 @@ function setBasketProductsContainerEvLis(){
                 setSubtotalAndNrItems()
                 btn.previousElementSibling.innerText = product.amount
             } else{
-                basketProductsContainer.removeChild(btn.parentElement.parentElement)
                 removeProduct(id)
             }
         }
@@ -143,12 +138,17 @@ export function renderWithProducts(){
 export function renderProductInBasket(product){
     const div = document.createElement('div')
     div.classList.add('basket-product')
+    div.dataset['id'] = product.id
     div.innerHTML = `
-        <img src=${product.image} alt="product" />
+        <div class="basket-product-img-container">
+            <div class="basket-product-img-size-setter">
+                <img class="basket-product-img" src=${product.image} alt="product" />
+            </div>
+        </div>
         <div>
             <h4>${product.title}</h4>
             <h5>${product.brand}<h5>
-            <h5>${product.price}</h5>
+            <h5>£${product.price}</h5>
             <span class="remove-product-btn" data-id=${product.id}>remove</span>
         </div>
         <div>
@@ -164,13 +164,14 @@ export function saveAddToBasketBtns(buttons){
     addToBasketBtns = buttons
 }
 
-function removeProduct(id){
+export function removeProduct(id){
+    let productDiv = basketProductsContainer.querySelector(`.basket-product[data-id='${id}']`)
+    basketProductsContainer.removeChild(productDiv)
     basket = basket.filter(product => product.id !== id)
     setSubtotalAndNrItems()
     Storage.saveBasket(basket)
     let button = getButton(id)
     if(button){
-        button.disabled = false;
         button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to basket`
     }
 }

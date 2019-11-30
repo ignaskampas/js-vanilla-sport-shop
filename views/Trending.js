@@ -108,6 +108,8 @@ let Trending = {
             'fields.isTrending' : 'true',
             'content_type' : 'product'
         }, page_container);
+    }, stopSlideShow: () => {
+        clearInterval(timer)
     }
 }
 
