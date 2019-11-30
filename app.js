@@ -25,7 +25,6 @@ const router = async () => {
     
     let page = routes[parsedURL] ? routes[parsedURL] : Error404
     await page.render(header, page_container);
-    await page.after_render();
 }
 
 window.addEventListener('hashchange', router);

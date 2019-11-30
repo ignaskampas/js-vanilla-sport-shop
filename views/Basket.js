@@ -118,7 +118,7 @@ function setNavbarCartBtnEvLis(){
     })
 }
 
-export async function renderWithoutProducts(){
+export function renderWithoutProducts(){
     page_container.innerHTML = `
         <div class="basket-transparent-background">
             <div class="basket-container">
@@ -137,7 +137,7 @@ export async function renderWithoutProducts(){
     setBasketOnClickListeners()
 } 
 
-export async function renderWithProducts(){
+export function renderWithProducts(){
     basket.forEach(product => renderProductInBasket(product))
 }
 
@@ -168,4 +168,9 @@ function removeProduct(id){
     let button = getButton(id)
     button.disabled = false;
     button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to basket`
+}
+
+export async function render(){
+    renderWithoutProducts()
+    renderWithProducts()
 }

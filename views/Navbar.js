@@ -22,8 +22,7 @@ let Navbar = {
         `
         var header = document.getElementsByTagName("header")[0]
         header.innerHTML = view
-    },
-    after_render: async () => {},
+    }
 }
 
 export default Navbar;

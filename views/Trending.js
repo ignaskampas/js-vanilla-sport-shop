@@ -101,7 +101,6 @@ const renderSlideShow = async (header) => {
 let Trending = {
     render: async (header, page_container) => {
         await Navbar.render();
-        await Navbar.after_render();
         var header = document.getElementsByTagName("header")[0];
         await renderSlideShow(header);
         addBannersFunctionality();
@@ -109,7 +108,6 @@ let Trending = {
             'fields.isTrending' : 'true',
             'content_type' : 'product'
         }, page_container);
-    }, after_render: async () => {
     }
 }
 

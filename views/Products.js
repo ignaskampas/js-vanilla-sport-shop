@@ -19,6 +19,7 @@ const getProducts = async (contentfulQuery) => {
         return products;
     } catch(error){
         console.log(error)
+        page_container.innerHTML = `<p>Failed to load the products.<p>`
     }
 }
 
@@ -73,15 +74,13 @@ function displayProducts(products, page_container) {
 
 let Products = {
     render: async (contentfulQuery, page_container) => {
-        Basket.renderWithoutProducts()
-        Basket.renderWithProducts()
-        getProducts(contentfulQuery).then(products => {
+        await Basket.render()
+        const response = getProducts(contentfulQuery)
+        response.then(products => {
             displayProducts(products, page_container)
             Storage.saveProducts(products)
             setUpAddToBasketBtns()
-        })
-    },
-    after_render: async () => {
+        }).catch(err => {})
     }
 }
 
