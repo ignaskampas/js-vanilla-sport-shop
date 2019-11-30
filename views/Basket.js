@@ -169,8 +169,10 @@ function removeProduct(id){
     setSubtotalAndNrItems()
     Storage.saveBasket(basket)
     let button = getButton(id)
-    button.disabled = false;
-    button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to basket`
+    if(button){
+        button.disabled = false;
+        button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to basket`
+    }
 }
 
 export async function render(){

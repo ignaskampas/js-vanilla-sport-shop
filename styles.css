@@ -12,8 +12,6 @@
   --main-navbar-height: 60px;
   --sub-navbar-height: 50px;
   --navbar-index: 2;
-  /* !! see if this is a local variable within #basket-transparent-background if it 
-  still can be accessed by elements within the #basket-transparent-background*/
   --basket-transparent-bck-index: calc(var(--navbar-index) + 1); /*3*/
   --letterSpacing: 0.1rem;
 }
@@ -326,7 +324,6 @@ body {
   right: 0;
   z-index: var(--basket-transparent-bck-index);/*3*/
   transition: var(--mainTransition);
-  /* !! add transparency */
   background: #e0c56e60;
 }
 
