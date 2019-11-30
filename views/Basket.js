@@ -68,7 +68,7 @@ function setBasketProductsContainerEvLis(){
             let btn = event.target 
             let id = btn.dataset.id
             let product = basket.find(product => product.id === id)
-            product.amount = product.amount += 1
+            product.amount += 1
             Storage.saveBasket(basket)
             setSubtotalAndNrItems()
             btn.nextElementSibling.innerText = product.amount
@@ -90,7 +90,6 @@ function setBasketProductsContainerEvLis(){
 }
 
 export function setBasketOnClickListeners(){
-    addToBasketBtns = [...document.querySelectorAll(".add-to-basket-btn")]
     basketTransparentBackground = document.querySelector('.basket-transparent-background')
     basketContainer = document.querySelector('.basket-container')
     subtotal = document.getElementById('subtotal')
@@ -161,9 +160,13 @@ export function renderProductInBasket(product){
     basketProductsContainer.appendChild(div)
 }
 
+export function saveAddToBasketBtns(buttons){
+    addToBasketBtns = buttons
+}
+
 function removeProduct(id){
     basket = basket.filter(product => product.id !== id)
-    this.setSubtotalAndNrItems()
+    setSubtotalAndNrItems()
     Storage.saveBasket(basket)
     let button = getButton(id)
     button.disabled = false;

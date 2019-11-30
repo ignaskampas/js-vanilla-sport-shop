@@ -25,6 +25,7 @@ const getProducts = async (contentfulQuery) => {
 
 function setUpAddToBasketBtns(){
     const buttons = [...document.querySelectorAll(".add-to-basket-btn")];
+    Basket.saveAddToBasketBtns(buttons)
     buttons.forEach(button => {
         let id = button.dataset.id;
         let inBasket = Basket.inBasket(id);
