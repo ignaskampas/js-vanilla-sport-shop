@@ -10,7 +10,7 @@ var slideIndex, slides;
 
 function atomaticallyChangeBannerImgs(){
     clearInterval(timer);
-    timer = setInterval(function() {moveSlide(1);}, 3000);
+    timer = setInterval(function() {moveSlide(1);}, 6000);
 }
 
 function initBanner(){
